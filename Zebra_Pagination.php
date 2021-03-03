@@ -1,23 +1,17 @@
 <?php
 
 /**
- *  A generic, Twitter Bootstrap compatible (both 3 and 4), pagination script that automatically generates navigation links
- *  as well as next/previous page links, given the total number of records and the number of records to be shown per page.
- *  Useful for breaking large sets of data into smaller chunks, reducing network traffic and, at the same time, improving
- *  readability, aesthetics and usability.
+ * A generic, Twitter Bootstrap compatible (both 3 and 4), pagination script that automatically generates navigation
+ * links as well as next/previous page links, given the total number of records and the number of records to be shown
+ * per page. Useful for breaking large sets of data into smaller chunks, reducing network traffic and, at the same time,
+ * improving readability, aesthetics and usability.
  *
- *  Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
- *
- *  @author     Stefan Gabos <contact@stefangabos.ro>
- *  @version    2.3.1 (last revision: July 04, 2018)
- *  @copyright  (c) 2009 - 2018 Stefan Gabos
- *  @license    http://www.gnu.org/licenses/lgpl-3.0.txt GNU LESSER GENERAL PUBLIC LICENSE
- *  @package    Zebra_Pagination
+ * Read more {@link https://github.com/stefangabos/Zebra_Pagination/ here}
  */
-class Zebra_Pagination {
-
-    // set defaults and initialize some private variables
-    private $_properties = array(
+class Zebra_Pagination
+{
+    // set defaults and initialize some protected variables
+    protected $_properties = [
 
         // should the "previous page" and "next page" links be always visible
         'always_show_navigation'    =>  true,
@@ -26,11 +20,11 @@ class Zebra_Pagination {
         'avoid_duplicate_content'   =>  true,
 
         // CSS classes to assign to the list, list item and to the anchor
-        'css_classes'   =>  array(
+        'css_classes'   =>  [
             'list'      =>  'pagination',
             'list_item' =>  'page-item',
             'anchor'    =>  'page-link',
-        ),
+        ],
 
         // default method for page propagation
         'method'                    =>  'get',
@@ -78,7 +72,7 @@ class Zebra_Pagination {
         // this is the variable name to be used in the URL for propagating the page number
         'variable_name'             =>  'page',
 
-    );
+    ];
 
     /**
      *  Constructor of the class.
@@ -772,7 +766,7 @@ class Zebra_Pagination {
      *
      *  @return void
      */
-    private function _build_uri($page) {
+    protected function _build_uri($page) {
 
         // if page propagation method is through SEO friendly URLs
         if ($this->_properties['method'] == 'url') {
@@ -841,7 +835,7 @@ class Zebra_Pagination {
     /**
      *  Generates the "next page" link, depending on whether the pagination links are shown in natural or reversed order.
      */
-    private function _show_next() {
+    protected function _show_next() {
 
         $output = '';
 
@@ -886,7 +880,7 @@ class Zebra_Pagination {
      *  Generates the pagination links (minus "next" and "previous"), depending on whether the pagination links are shown
      *  in natural or reversed order.
      */
-    private function _show_pages() {
+    protected function _show_pages() {
 
         $output = '';
 
@@ -1104,7 +1098,7 @@ class Zebra_Pagination {
     /**
      *  Generates the "previous page" link, depending on whether the pagination links are shown in natural or reversed order.
      */
-    private function _show_previous() {
+    protected function _show_previous() {
 
         $output = '';
 
@@ -1143,5 +1137,4 @@ class Zebra_Pagination {
         return $output;
 
     }
-
 }
