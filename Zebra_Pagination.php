@@ -452,7 +452,7 @@ class Zebra_Pagination
      *
      *                              Default is "get".
      *
-     *  @returns void
+     *  @return void
      */
     public function method($method = 'get') {
 
